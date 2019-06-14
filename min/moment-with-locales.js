@@ -429,8 +429,8 @@
         LL   : 'MMMM D, YYYY',
         LLL  : 'MMMM D, YYYY h:mm A',
         LLLL : 'dddd, MMMM D, YYYY h:mm A',
-        LDM  : 'MM月YYYY年',
-        LMY  : 'DD日MM月'
+        LMD  : 'MM月YYYY年',
+        LYM  : 'DD日MM月'
     };
 
     function longDateFormat (key) {
@@ -545,7 +545,7 @@
 
     var formattingTokens = /(\[[^\[]*\])|(\\)?([Hh]mm(ss)?|Mo|MM?M?M?|Do|DDDo|DD?D?D?|ddd?d?|do?|w[o|w]?|W[o|W]?|Qo?|YYYYYY|YYYYY|YYYY|YY|gg(ggg?)?|GG(GGG?)?|e|E|a|A|hh?|HH?|kk?|mm?|ss?|S{1,9}|x|X|zz?|ZZ?|.)/g;
 
-    var localFormattingTokens = /(\[[^\[]*\])|(\\)?(LMY|LDM|LTS|LT|LL?L?L?|l{1,4})/g;
+    var localFormattingTokens = /(\[[^\[]*\])|(\\)?(LYM|LMD|LTS|LT|LL?L?L?|l{1,4})/g;
 
     var formatFunctions = {};
 
