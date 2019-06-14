@@ -430,9 +430,7 @@
         L    : 'MM/DD/YYYY',
         LL   : 'MMMM D, YYYY',
         LLL  : 'MMMM D, YYYY h:mm A',
-        LLLL : 'dddd, MMMM D, YYYY h:mm A',
-        LDM  : 'MM月YYYY年',
-        LMY  : 'DD日MM月'
+        LLLL : 'dddd, MMMM D, YYYY h:mm A'
     };
 
     function longDateFormat (key) {
@@ -547,7 +545,7 @@
 
     var formattingTokens = /(\[[^\[]*\])|(\\)?([Hh]mm(ss)?|Mo|MM?M?M?|Do|DDDo|DD?D?D?|ddd?d?|do?|w[o|w]?|W[o|W]?|Qo?|YYYYYY|YYYYY|YYYY|YY|gg(ggg?)?|GG(GGG?)?|e|E|a|A|hh?|HH?|kk?|mm?|ss?|S{1,9}|x|X|zz?|ZZ?|.)/g;
 
-    var localFormattingTokens = /(\[[^\[]*\])|(\\)?(LDM|LMY|LTS|LT|LL?L?L?|l{1,4})/g;
+    var localFormattingTokens = /(\[[^\[]*\])|(\\)?(LTS|LT|LL?L?L?|l{1,4})/g;
 
     var formatFunctions = {};
 
@@ -1959,6 +1957,9 @@
             if (locales[name] != null) {
                 if (locales[name].parentLocale != null) {
                     locales[name] = locales[name].parentLocale;
+                    if (name === getSetGlobalLocale()) {
+                        getSetGlobalLocale(name);
+                    }
                 } else if (locales[name] != null) {
                     delete locales[name];
                 }
@@ -2301,7 +2302,7 @@
 
     function checkWeekday(weekdayStr, parsedInput, config) {
         if (weekdayStr) {
-            // TODO: Replace the vanilla JS Date object with an indepentent day-of-week check.
+            // TODO: Replace the vanilla JS Date object with an independent day-of-week check.
             var weekdayProvided = defaultLocaleWeekdaysShort.indexOf(weekdayStr),
                 weekdayActual = new Date(parsedInput[0], parsedInput[1], parsedInput[2]).getDay();
             if (weekdayProvided !== weekdayActual) {
