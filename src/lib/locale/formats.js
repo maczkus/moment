@@ -5,8 +5,8 @@ export var defaultLongDateFormat = {
     LL   : 'MMMM D, YYYY',
     LLL  : 'MMMM D, YYYY h:mm A',
     LLLL : 'dddd, MMMM D, YYYY h:mm A',
-    LMD  : 'MM月YYYY年',
-    LYM  : 'DD日MM月'
+    LYM  : 'YYYY年MM月',
+    LMD  : 'MM月DD日'
 };
 
 export function longDateFormat (key) {
